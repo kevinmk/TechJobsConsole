@@ -22,7 +22,11 @@ namespace TechJobsConsole
             columnChoices.Add("position type", "Position Type");
             columnChoices.Add("all", "All");
 
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Welcome to LaunchCode's TechJobs App!");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
 
             // Allow user to search/list until they manually quit with ctrl+c
             while (true)
@@ -42,9 +46,11 @@ namespace TechJobsConsole
                     {
                         List<string> results = JobData.FindAll(columnChoice);
                         results.Sort();
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\n*** All " + columnChoices[columnChoice] + " Values ***");
                         foreach (string item in results)
                         {
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine(item);
                         }
                     }
@@ -55,6 +61,7 @@ namespace TechJobsConsole
                     string columnChoice = GetUserSelection("Search", columnChoices);
 
                     // What is their search term?
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine("\nSearch term: ");
                     string searchTerm = Console.ReadLine();
 
@@ -94,10 +101,12 @@ namespace TechJobsConsole
 
             do
             {
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("\n" + choiceHeader + " by:");
 
                 for (int j = 0; j < choiceKeys.Length; j++)
                 {
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine(j + " - " + choices[choiceKeys[j]]);
                 }
 
@@ -108,7 +117,9 @@ namespace TechJobsConsole
                 {
                     if (choiceIdx < 0 || choiceIdx >= choiceKeys.Length)
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choices. Try again.");
+                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     else
                     {
@@ -117,7 +128,9 @@ namespace TechJobsConsole
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("invalid Choices, Try again");
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
 
             } while (!isValidChoice);
@@ -131,19 +144,24 @@ namespace TechJobsConsole
             int count = someJobs.Count;
             if (count == 0)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(" Nothing was found.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
                 foreach (Dictionary<string, string> item in someJobs)
                 {
-                    Console.WriteLine("\n**********************");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n******************************");
                     foreach (KeyValuePair<string, string> itemline in item)
                     {
+                        Console.ForegroundColor = ConsoleColor.White;
                         if (itemline.Key != "S.no")
                             Console.WriteLine(itemline.Key + " : " + itemline.Value);
                     }
-                    Console.WriteLine("**********************\n\n");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("******************************\n\n");
                 }
 
             }
