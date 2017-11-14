@@ -97,7 +97,7 @@ namespace TechJobsConsole
         }
 
         /*
-         * Load and parse data from job_data.csv
+         * Load and parse data from job_data.csv file
          */
         private static void LoadData()
         {
