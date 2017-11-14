@@ -137,13 +137,13 @@ namespace TechJobsConsole
             {
                 foreach (Dictionary<string, string> item in someJobs)
                 {
-                    Console.WriteLine("\n****");
+                    Console.WriteLine("\n**********************");
                     foreach (KeyValuePair<string, string> itemline in item)
                     {
                         if (itemline.Key != "S.no")
                             Console.WriteLine(itemline.Key + " : " + itemline.Value);
                     }
-                    Console.WriteLine("****\n\n");
+                    Console.WriteLine("**********************\n\n");
                 }
 
             }
